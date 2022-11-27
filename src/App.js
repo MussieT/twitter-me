@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/Header";
+import Tasks from "./components/Tasks";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div  className='mt-10 mx-auto border border-black w-1/2 p-5 rounded-xl justify-between'>
+        <div className="block">
+          <Header title="Task Tracker" />
+        </div>
+        <div className="block">
+          <Tasks />
+        </div>
     </div>
   );
 }
