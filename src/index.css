@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .task-image {
+        @apply bg-gray-200 px-7 py-2 rounded-r-lg w-full my-2 text-center
+    }
+
+    .task-icon {
+        @apply mt-2 text-red-600 font-bold hover:cursor-pointer
+    }
+
+    .task-reminder-text {
+        @apply text-sm font-thin font-mono mt-1 flex justify-start
+    }
+
+    .task-input {
+        @apply border-2 border-black rounded-md mt-1 w-1/2 p-1 pl-2 placeholder:text-base
+    }
+
+    .task-label {
+        @apply block text-lg
+    }
+
+    .task-inputs-grid {
+        @apply col-start-2 col-span-5
+    }
+}

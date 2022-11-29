@@ -1,7 +1,7 @@
 import { screen, render, cleanup } from '@testing-library/react'
 import { act } from 'react-dom/test-utils'
 
-import AddTaskButton from './AddTask'
+import AddTaskButton from './Button'
 
 afterEach(cleanup)
 
