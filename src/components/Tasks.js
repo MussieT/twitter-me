@@ -1,31 +1,12 @@
-const ThingsToDo = [
-    {
-        id: '1',
-        text: 'Doctors Appointment',
-        day: 'Feb 5th 2023',
-        reminder: true
-    },
-    {
-        id: '2',
-        text: 'Meeting at School',
-        day: 'Jan 11 2023',
-        reminder: false
-    },
-    {
-        id: '3',
-        text: 'Shopping',
-        day: 'Jan 14 2023',
-        reminder: false
-    }
-]
+import Task from './Task.js'
 
-const Tasks = () => {
+const Tasks = ({ ThingsToDo , onDelete, onToggle }) => {
+    
     return (
-        <div className="flex justify-center">
-            <div>
+        <div className="flex justify-center w-full">
+            <div className="w-2/3">
                 {ThingsToDo.map((thing) => 
-                    (<h3 key={thing.id} className="py-2 text-lg font-light">{thing.text}</h3>
-                ))}
+                    (<Task key={thing.id} task={thing} onDelete={onDelete} onToggle={onToggle} />))}
             </div>   
         </div>
     )
