@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import AddTaskButton from './AddTask'
+import AddTaskButton from './Button'
 
 // Bookmarks reminder, chrome extension
 
