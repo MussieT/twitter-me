@@ -7,10 +7,6 @@ const AddTask = ({ onAdd }) => {
     const [day, setDay] = useState('')
     const [reminder, setReminder] = useState(false)
 
-    const justConsoleLog = () => {
-        console.log('just console log')
-    }
-
     const onSubmit = (e) => {
         e.preventDefault();
 
