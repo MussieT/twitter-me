@@ -3,6 +3,7 @@ import { useState } from 'react'
 
 const AddTask = ({ onAdd }) => {
     const [text, setText] = useState('')
+    const [btnText, setBtnText] = useState('Save Task')
     const [day, setDay] = useState('')
     const [reminder, setReminder] = useState(false)
 
@@ -19,17 +20,19 @@ const AddTask = ({ onAdd }) => {
         setText('')
         setDay('')
         setReminder(false)
+        setBtnText("Saved")
+        
     }
 
     return (
         <form className="form w-full grid grid-cols-6 gap-0" onSubmit={onSubmit}>
             <div className="task-inputs-grid">
                 <label className="task-label">Task</label>
-                <input className="task-input" type="text" value={text} onChange={(e) => setText(e.target.value)} placeholder="Add Task" />
+                <input className="task-input" aria-label='task-input' type="text" value={text} onChange={(e) => setText(e.target.value)} placeholder="Add Task" />
             </div>
             <div className="task-inputs-grid">
                 <label className="task-label mt-3">Day & Time</label>
-                <input className="task-input" type="text" value={day} onChange={(e) => setDay(e.target.value)} placeholder="Add Day & time" />
+                <input className="task-input" aria-label='day-input' type="text" value={day} onChange={(e) => setDay(e.target.value)} placeholder="Add Day & time" />
             </div>
             <div className="task-inputs-grid">
                 <div className="w-1/2 flex justify-between">
@@ -39,7 +42,7 @@ const AddTask = ({ onAdd }) => {
                 </div>
             </div>
             <div className="col-span-5 col-start-2 my-2">
-                <Button text="Save Task" type="submit" className="w-1/2 bg-black text-white rounded-lg px-10 py-2" />
+                <Button text={btnText} type="submit" className="w-1/2 bg-black text-white rounded-lg px-10 py-2" onClick={onSubmit} />
             </div>
         </form>
     )
