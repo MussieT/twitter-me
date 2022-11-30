@@ -6,16 +6,26 @@ import AddTask from './AddTask'
 
 afterEach(cleanup)
 
+const setup = () => {
+    const onAdd = jest.fn()
+    
+    const utils = render(<AddTask onAdd={onAdd} />)
+
+    const input = utils.getByLabelText('task-input')
+    const dayInput = utils.getByLabelText('day-input')
+
+    return {
+        input,
+        dayInput
+    }
+}
+
 describe("Add Task Component", () => {
     it("tests by adding value to form", () => {
-        const onAdd = jest.fn()
-    
-        const utils = render(<AddTask onAdd={onAdd} />)
+        const { input, dayInput } = setup()
 
-        const input = utils.getByLabelText('task-input')
         fireEvent.change(input, { target: { value: 'first'}})
 
-        const dayInput = utils.getByLabelText('day-input')
         fireEvent.change(dayInput, { target: { value: 'Feb 14, 2024'}})
             
         userEvent.click(screen.getByRole('button', {name: "Save Task"}))
@@ -28,9 +38,7 @@ describe("Add Task Component", () => {
 
         window.alert = () => {};
 
-        const onAdd = jest.fn()
-
-        const utils = render(<AddTask onAdd={onAdd} />)
+        setup()
 
         userEvent.click(screen.getByRole('button', {name: "Save Task"}))
 
